@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 import Post from './Post/Post';
 import $ from 'jquery';
+import Aux from '../../hoc/Aux/Aux';
+import ShareMusicMainButton from '../../components/ShareMusicMainButton/ShareMusicMainButton';
+import Modal from '../../components/UI/Modal/Modal';
+import NewPost from '../NewPost/NewPost';
 
 class Posts extends Component {
     state = {
         posts: null,
-        // addingNewPost: false
+        addingNewPost: false
     }
 
-    componentDidMount() {
+    componentDidMount() { // later replace this with didUpdate cause needs to re-render when ajax POST completes
         $.ajax({
             url: 'https://music-blog-app.firebaseio.com/users/user/posts.json',
             success: (response) => {
@@ -18,20 +22,20 @@ class Posts extends Component {
                 //console.log(responseArray);
                 this.setState({
                     posts: responseArray
-                })
+                });
                 // console.log(this.state.posts);
             }
             //error
         });
     }
 
-    // addingNewPostHandler = () => {
-    //     this.setState({addingNewPost: true});
-    // }
+    addingNewPostHandler = () => {
+        this.setState({addingNewPost: true});
+    }
 
-    // cancelNewPostHandler = () => {
-    //     this.setState({addingNewPost: false});
-    // }
+    cancelNewPostHandler = () => {
+        this.setState({addingNewPost: false});
+    }
 
     sharedNewPostHandler = (caption, embedSrcLink) => {
 
@@ -46,6 +50,7 @@ class Posts extends Component {
         $.ajax({
             type: 'POST',
             url: 'https://music-blog-app.firebaseio.com/users/user/posts.json',
+            data: JSON.stringify(newPostToAdd),
             success: (response) => {
                 console.log(response);
                 this.setState(prevState =>({
@@ -59,50 +64,40 @@ class Posts extends Component {
 
     render() {
 
-        // let postsToRender = [];
-
-        // if(!this.state.posts) {
-        //     postsToRender = <h1>Nothing to show here !</h1>
-        // } else {
-        //     this.state.posts.map((post, index) => {
-        //         return postsToRender[index] = <Post
-        //                             // key={this.state.posts[index].id}
-        //                             key={index}
-        //                             caption={this.state.posts[index].caption}
-        //                             embedSrcLink={this.state.posts[index].embedSrcLink} />
-        //     });
-        // }
-        var postsToRender = <p>Nothing here</p>
-
-        console.log(this.state.posts);
         if(this.state.posts) {
             var myPosts = this.state.posts;
         }
-        console.log(myPosts);
-        // if(this.state.posts) {
-        //     postsToRender = (
-        //         this.state.posts.map((post, index) => <Post key={index} caption={this.state.posts[index].caption} embedSrcLink={this.state.posts[index].embedSrcLink} />)
-        //     );
-        // }
+
         let render;
         if(myPosts) {
             console.log(this.state.posts);
             render = (myPosts.map((post, index) => { return <Post key={index} caption={post.caption} embedSrcLink={post.embedSrcLink} />}))
         } else {
-            render = <p>still waiting...</p>
+            render = <p>Loading...</p>
         }
 
         return (
-            <div className="container posts-container">
-                {/* <p>jsdhfjhd</p>
-                {myPosts ? (myPosts.map((post, index) => {
-                    // console.log(post)
-                    return <Post key={post} caption={this.state.posts[index].caption} embedSrcLink={this.state.posts[index].embedSrcLink} />
-                })) : <p>still waiting...</p>} */}
-                {render}
-            </div>
+            <Aux>
+                <Modal styles="Modal" backdropStyles="backdrop" showModal={this.state.addingNewPost} modalClosed={this.cancelNewPostHandler}>
+                    <NewPost 
+                        showModal={this.state.addingNewPost}
+                        sharedNewPost={this.sharedNewPostHandler} />
+                </Modal>
+                <ShareMusicMainButton
+                    clicked={this.addingNewPostHandler} />
+
+                <div className="container posts-container">
+                    {render}
+                </div>
+            </Aux>
         ); 
     }
 }
 
 export default Posts;
+
+/* <p>jsdhfjhd</p>
+    {myPosts ? (myPosts.map((post, index) => {
+        // console.log(post)
+        return <Post key={post} caption={this.state.posts[index].caption} embedSrcLink={this.state.posts[index].embedSrcLink} />
+    })) : <p>still waiting...</p>} */

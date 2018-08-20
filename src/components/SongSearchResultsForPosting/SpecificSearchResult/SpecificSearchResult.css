@@ -1,0 +1,8 @@
+/* .specificResults {
+    display: flex;
+} */
+
+.spotify-items {
+    display: flex;
+    margin-right: 25px;
+}
