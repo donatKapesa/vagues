@@ -1,0 +1,63 @@
+.profile-of-poster {
+    margin-top: 60px;
+    margin-left: 30px;
+    text-align: left;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 200px;
+  }
+  
+  .profile-pic {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 15px;
+    border-radius: 50%;
+    content: 'pic';
+    background-color: grey;
+  }
+  
+  .post {
+    width: 600px;
+    margin: auto;
+    position: relative;
+    background-color: #f8f9fa;
+    padding: 50px 10px;
+    margin-bottom: 50px;
+  }
+  
+  /* can control size of iframe here */
+  .embed-iframe {
+    width: 300px;
+    height: 380px;
+  }
+  
+  .myIframe {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .card {
+    width: 302px;
+    margin: auto;
+  }
+  
+  .card-header {
+    background-color: white;
+  }
+  
+  .card-caption {
+    margin: 22px 0px;
+    padding: 5px 10px;
+  }
+  
+  .card-body {
+    padding: 0px;
+    /* or 20px */
+  }
+  
+  .card-footer {
+    border-top: none;
+    background-color: white;
+  }

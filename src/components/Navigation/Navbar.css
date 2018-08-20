@@ -1,0 +1,11 @@
+#search-form {
+    margin-right: 41.8%;
+}
+
+.navbar {
+    /* to fix: make this fixed at the top */
+    margin-bottom: 60px;
+}
+
+/* .navbar-brand {
+margin-left: 100px /* REPLACE THIS WITH A CONTAINER */

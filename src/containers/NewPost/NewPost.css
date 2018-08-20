@@ -1,0 +1,68 @@
+.newPost-card {
+    border: none!important;
+    margin-bottom: 0px;
+    width: 100%;
+  }
+  
+  .newPost-card .card-header {
+    padding-top: 0px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #16e68966;
+  }
+  
+  .newPost-card .card-body {
+    margin-top: 10px;
+  }
+  
+  .newPost-card .card-body .btn-primary {
+    margin-bottom: 0px;
+    background-color: rgba( 22, 230, 137, 1 );
+    border-color: rgba( 28, 227, 125, 0.5 );
+  }
+
+  #caption {
+    display: block;
+    min-height: 75px;
+    width: 100%;
+    border: 1px solid #16e68966;
+    border-radius: 4px;
+    padding: 20px 8px;
+    outline: 0 none;
+    margin: 10px 0;
+    background: white;
+    font-size: inherit;
+    overflow: hidden;
+  }
+
+  #embed-link-textarea {
+    display: block;
+    min-height: 5px;
+    width: 100%;
+    border: 1px solid #16e68966;
+    border-radius: 20px;
+    padding: 10px 8px;
+    outline: 0 none;
+    margin: 10px 0;
+    background: white;
+    font-size: inherit;
+    overflow: hidden;
+  }
+
+  #shareButton {
+      margin-top: 15px;
+      background: rgba( 22, 230, 137, 1 );
+      /* background: rgba( 20, 224, 133, 1 ); */
+  }
+  
+  #shareButton .btn-primary {
+      font-size: 24px;
+  }
+
+  #shareButton .btn-primary:active {
+      background-color: rgba( 22, 230, 137, 1 );
+      border-color: rgba( 22, 230, 137, 1 ); 
+  }
+
+  #shareButton .btn-primary:focus {
+      box-shadow: none;
+  }
