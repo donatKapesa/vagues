@@ -9,7 +9,11 @@ const specificSearchResfult = (props) => {
 
     if(items) {
         items.map((element, index) => { // improve this piece of code like in Posts
-            return singleResult[index] = <SingleResult key={index} type={props.type} item={element} clickedResult={props.clickedResult} />
+            return singleResult[index] = <SingleResult 
+                                                    key={index}
+                                                    type={props.type} 
+                                                    item={element} 
+                                                    clickedResult={props.clickedResult} />
         })
     } else (
         console.log('no items passed')

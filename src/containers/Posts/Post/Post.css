@@ -1,22 +1,3 @@
-.profile-of-poster {
-    margin-top: 60px;
-    margin-left: 30px;
-    text-align: left;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 200px;
-  }
-  
-  .profile-pic {
-    width: 100px;
-    height: 100px;
-    margin-bottom: 15px;
-    border-radius: 50%;
-    content: 'pic';
-    background-color: grey;
-  }
-  
   .post {
     width: 600px;
     margin: auto;

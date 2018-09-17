@@ -1,3 +1,10 @@
+.active-result {
+  padding: 8px;
+  border: 5px solid #34a5ffd1;
+  border-radius: 5px;
+  background-color: #0099ff;
+}
+
 .newPost-card {
     border: none!important;
     margin-bottom: 0px;

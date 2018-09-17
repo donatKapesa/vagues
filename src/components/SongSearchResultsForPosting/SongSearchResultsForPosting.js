@@ -2,13 +2,10 @@ import React from 'react';
 import SpecificSearchResult from './SpecificSearchResult/SpecificSearchResult';
 
 const SongSearchResultsForPosting = (props) => {
-
-    // console.log(props);
-
     let tracks;
     let albums;
-    // let playlists;
     let artists;
+    // let playlists;
 
     if(props.searchResults) {
         tracks = props.searchResults.tracks;
@@ -18,13 +15,10 @@ const SongSearchResultsForPosting = (props) => {
     } else (
         console.log('nothing as props')
     )
-    // console.log(tracks);
-
     return(
         <div style={{overflow: 'scroll', display: 'flex'}} className="searchResults">
             <SpecificSearchResult key='1' specificSearchResults={tracks} type='track' clickedResult={props.clickedResult} />
             <SpecificSearchResult key='2' specificSearchResults={albums} type='album' clickedResult={props.clickedResult} />
-            {/* <SpecificSearchResult key='3' specificSearchResults={playlists} type='playlist' /> */}
             <SpecificSearchResult key='3' specificSearchResults={artists} type='artist' clickedResult={props.clickedResult} />
         </div>
     )

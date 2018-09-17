@@ -10,8 +10,9 @@ class NewPost extends Component {
     state = {
         caption: '',
         embedSrcLink: '',
-        accessToken: 'BQDIrSOi9dv4ASLeTmFERCKU5iRBK2x5yXHosMUUBCe-jvKHwZ_RtxE9wugwClpBe_5xDg2rteVE6soJ3etJTFz50Kkx_47K1UGIEziwNdhuGGm-0OCMLhgk2p96g4yal0Ezu32eI54vgezGnnA',
-        renderResults: null
+        accessToken: 'BQC45vWT3ngfnY3IPNwLmL4EqJIiGtcF6qYEGLOlws0jdsVvLW-oWYYtseXMtDRugWym08eF6N67I-OaxP3-YaJIdOIsJFpjIoT5fwPDfAog1p-eQV60BPG36SojcwbqrMLb5CwAPVMuAk-KINha2SgaSqEo5A',
+        renderResults: null,
+        selectedResult: null,
     }
 
     // componentDidMount() {
@@ -22,21 +23,35 @@ class NewPost extends Component {
     //     this.setState({accessToken: accessToken}, () => console.log(this.state.accessToken));
     // }
 
-    clickedResultHandler = (embedLink) => {
-        this.setState({embedSrcLink: embedLink}, () => console.log(this.state.embedSrcLink));
+    clickedResultHandler = (embedLink, event) => {
+        this.setState({embedSrcLink: embedLink}); // I forgot why we have to call console.log like this. () => ...
+        const resultDiv = event.target.closest(".result"); // alternative, can count number of divs to go up by
+        // sets current active-result in state
+        this.setState({selectedResult: resultDiv}, () => {
+
+            var resultsList = document.getElementsByClassName('result');
+            // console.log(this.state.selectedResult);
+
+            // update style
+            // THERE MUST BE A BETTER WAY LIKE IN MY MCQ PRACTICE
+            for(let index = 0; index < resultsList.length; index++) {
+                resultsList[index].classList.remove('active-result');
+            }
+            resultDiv.classList.add('active-result');
+        });
+
     }
     
     onCaptionChangeHandler = (e) => {
         this.setState({
             caption: e.target.value
-        }, () => console.log(this.state.caption));
+        });
     }
 
     onSearchChangeHandler = (e) => {
         this.setState({
             search: e.target.value
         }, () => {
-            console.log(this.state.search);
             $.ajax({
                 url: 'https://api.spotify.com/v1/search',
                 headers: {'Authorization' : 'Bearer ' + this.state.accessToken},
@@ -49,7 +64,7 @@ class NewPost extends Component {
                     // console.log(response);
                     this.setState({searchResults: response}, () => {
                         // console.log(this.state.searchResults);
-                        let renderResults = <SongSearchResultsForPosting searchResults={this.state.searchResults} clickedResult={this.clickedResultHandler} />
+                        let renderResults = <SongSearchResultsForPosting selectedResult={this.state.selectedResult} searchResults={this.state.searchResults} clickedResult={this.clickedResultHandler} />
                         this.setState({renderResults: renderResults});
                     });
                 }
@@ -83,6 +98,7 @@ class NewPost extends Component {
                         
                         <button onClick={(e) => this.onSubmitHandler(e)}>Share</button>
                     </div>
+                    {/* search results */}
                     {this.state.renderResults}
                 </div>
             </Aux>

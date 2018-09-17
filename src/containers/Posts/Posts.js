@@ -8,7 +8,7 @@ import NewPost from '../NewPost/NewPost';
 
 class Posts extends Component {
     state = {
-        posts: null,
+        posts: [],
         addingNewPost: false
     }
 
@@ -18,12 +18,12 @@ class Posts extends Component {
             success: (response) => {
                 //console.log(response); // object of objects
                 // converting to array of objects
-                const responseArray = Object.keys(response).map(i => response[i]);
-                //console.log(responseArray);
-                this.setState({
-                    posts: responseArray
-                });
-                // console.log(this.state.posts);
+                if(response) { // if response isn't empty
+                    const responseArray = Object.keys(response).map(i => response[i]);
+                    this.setState({
+                        posts: responseArray
+                    });
+                }
             }
             //error
         });
@@ -44,7 +44,11 @@ class Posts extends Component {
             embedSrcLink: embedSrcLink
         }
 
-        var postsToUpdate = this.state.posts.slice();
+        // var postsToUpdate = this.state.posts.slice();
+        let postsToUpdate;
+        if(this.state.posts) { // when there's no posts in database
+            postsToUpdate = this.state.posts.slice();
+        }
         postsToUpdate.push(newPostToAdd);
 
         $.ajax({
@@ -52,7 +56,7 @@ class Posts extends Component {
             url: 'https://music-blog-app.firebaseio.com/users/user/posts.json',
             data: JSON.stringify(newPostToAdd),
             success: (response) => {
-                console.log(response);
+                // console.log(response);
                 this.setState(prevState =>({
                     addingNewPost: false,
                     posts: [...this.state.posts, newPostToAdd]
@@ -63,17 +67,13 @@ class Posts extends Component {
     }
 
     render() {
+        var render = <div>loading...</div>;
 
-        if(this.state.posts) {
-            var myPosts = this.state.posts;
-        }
-
-        let render;
-        if(myPosts) {
-            console.log(this.state.posts);
-            render = (myPosts.map((post, index) => { return <Post key={index} caption={post.caption} embedSrcLink={post.embedSrcLink} />}))
+        if(this.state.posts.length === 0) {
+            render = <p>You haven't shared any music with your friends. What are you waiting for?</p>
         } else {
-            render = <p>Loading...</p>
+            // console.log(this.state.posts); // Posts fetched from database
+            render = (this.state.posts.map((post, index) => { return <Post key={index} caption={post.caption} embedSrcLink={post.embedSrcLink} />}))
         }
 
         return (
