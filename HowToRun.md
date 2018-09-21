@@ -1,4 +1,4 @@
-#How To Run App
+# How To Run App
 
 Since I have not yet implemented code to extract access tokens that help users connect to spotify API's here are some instructions on how to run the app if you want to see how it works.
 
