@@ -1,6 +1,6 @@
 # How To Run App
 
-Since I have not yet implemented code to extract access tokens that help users connect to spotify API's here are some instructions on how to run the app if you want to see how it works.
+To make testing easier for me, I decided to hold on to the code that extract access tokens that allow the app the execute requests to spotify's API. For this reason, if you want to run this app to see how it works, follow these instructions.
 
 1. Go to https://developer.spotify.com/console/get-search-item/
 2. Scroll down and click "Get Token"
