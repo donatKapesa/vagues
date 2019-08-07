@@ -3,7 +3,7 @@ import './SingleResult.css';
 
 const SingleResult = (props) => {
     let name = props.item.name;
-    let embedSrcLink = 'https://open.spotify.com/embed/' + props.type + '/' + props.item.id;
+    let embedCodeSource = 'https://open.spotify.com/embed/' + props.type + '/' + props.item.id;
     let images;
     let imgURL;
     let image = <div className="music-missing-image"><i className="fas fa-music fa-8x"></i></div>
@@ -19,7 +19,7 @@ const SingleResult = (props) => {
     } // else it's NULL
 
     return(
-        <div onClick={(e) => props.clickedResult(embedSrcLink, e)} className='result'>
+        <div onClick={(e) => props.clickedResult(embedCodeSource, e)} className='result'>
             {/* {console.log(target)} */}
             <div className='result-pic-div'>
                 {image}
@@ -28,7 +28,7 @@ const SingleResult = (props) => {
                 {name}
             </div>
             <div className='display-name'>
-                {/* embedSrc: {state.embedSrcLink} */}
+                {/* embedSrc: {state.embedCodeSource} */}
             </div>
         </div>
     );
@@ -58,12 +58,12 @@ export default SingleResult;
 //         // let genres = this.props.genres; // ARRAY
 //         let imageURL = imgURL;
     
-//         let embedSrcLink = 'https://open.spotify.com/embed/' + this.props.type + '/' + this.props.item.id;
+//         let embedCodeSource = 'https://open.spotify.com/embed/' + this.props.type + '/' + this.props.item.id;
     
 //         let className = 'result ';
 
 //         return (
-//             <div onClick={(e) => this.props.clickedResult(embedSrcLink, e)} className={className}>
+//             <div onClick={(e) => this.props.clickedResult(embedCodeSource, e)} className={className}>
 //                 <div className='result-pic-div'>
 //                     <img alt='song' className='result-pic' src={imageURL}></img>
 //                 </div>
@@ -71,7 +71,7 @@ export default SingleResult;
 //                     {name}
 //                 </div>
 //                 <div className='display-name'>
-//                     {/* embedSrc: {state.embedSrcLink} */}
+//                     {/* embedSrc: {state.embedCodeSource} */}
 //                 </div>
 //             </div>
 //         );
