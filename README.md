@@ -21,7 +21,7 @@ To make testing easier for me, I decided to hold on to the code that extract acc
 So the code should look like this:
 
 state = {
-  accessToken: [access token that you generated from spotify]
+  access_token: [access token that you generated from spotify]
 }
 
 

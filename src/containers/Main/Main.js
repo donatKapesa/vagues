@@ -44,6 +44,8 @@ export class Main extends Component {
   };
 
   render() {
+    console.log("Main.js - ");
+    console.log(this.props.access_token);
     return (
       <Aux>
         <Modal
@@ -53,6 +55,7 @@ export class Main extends Component {
           modalClosed={this.cancelAddingNewPostHandler}
         >
           <NewPost
+            access_token={this.props.access_token}
             showModal={this.state.addingNewPost}
             sharedNewPost={this.sharedNewPostHandler}
           />

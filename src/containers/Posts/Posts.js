@@ -45,7 +45,7 @@ class Posts extends Component {
       );
     } else {
       renderPosts = this.state.postsArray.map((post, index) => {
-        console.log(post);
+        // console.log(post);
         return (
           <Post
             key={index}

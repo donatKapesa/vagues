@@ -10,19 +10,18 @@ class NewPost extends Component {
   state = {
     caption: "",
     embedCodeSource: "",
-    accessToken:
-      "BQBcA0TUq09tJnq18cDd0jgP4DXm1yDAEEv18cmTGlsfCXMuCsUKlSJVCQHk7Yg5BiWsJSHWygq2IxY8AG5atcN_lkvJb1dLVMLM93yzDolTpNLlWweZPIpzbwA1iagxVQpG8qBhUo9laz0Z63ET3VZecfOWP4cYe3UbGLM61r2DTs_H7sDq1IUajkpyc-psPxhqXOfD-1UVrmh_qvd2xGkwQNHTNiN4v4ETA43Jaci-",
+    access_token: null,
     renderResults: null,
     selectedResult: null
   };
 
-  // componentDidMount() {
-  //     // getting the access token
-  //     let parsed = queryString.parse(window.location.search);
-  //     let accessToken = parsed.access_token
-
-  //     this.setState({accessToken: accessToken}, () => console.log(this.state.accessToken));
-  // }
+  componentDidMount = () => {
+    console.log("ComponentDidMount - NewPost.js");
+    console.log(this.props.access_token);
+    this.setState({
+      access_token: this.props.access_token
+    })
+  }
 
   /*  When user clicks on a search result */
   clickedResultHandler = (embedLink, event) => {
@@ -55,7 +54,7 @@ class NewPost extends Component {
       () => {
         $.ajax({
           url: "https://api.spotify.com/v1/search",
-          headers: { Authorization: "Bearer " + this.state.accessToken },
+          headers: { Authorization: "Bearer " + this.state.access_token },
           data: {
             q: this.state.search,
             type: "album,track,playlist,artist",
