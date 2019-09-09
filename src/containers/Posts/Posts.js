@@ -4,39 +4,11 @@ import $ from "jquery";
 import Aux from "../../hoc/Aux/Aux";
 
 class Posts extends Component {
-  state = {
-    postsArray: []
-  };
-
-  componentDidMount() {
-    this.fetchPosts();
-  }
-
-  fetchPosts = () => {
-    $.ajax({
-      url: "https://music-blog-app.firebaseio.com/users/user/posts.json",
-      success: response => {
-        if (response) {
-          console.log(response);
-          // convert object of objects to array of objects
-          const responseArray = Object.keys(response).map(
-            postIdFromFirebase => response[postIdFromFirebase]
-          );
-          this.setState({
-            postsArray: responseArray
-          });
-        }
-      },
-      error: error => {
-        console.log(error);
-      }
-    });
-  };
-
+  
   render() {
     var renderPosts = <div>loading...</div>;
 
-    if (!this.state.postsArray.length) {
+    if (!this.props.postsArray.length) {
       renderPosts = (
         <p>
           You haven't shared any music with your friends. What are you waiting
@@ -44,7 +16,7 @@ class Posts extends Component {
         </p>
       );
     } else {
-      renderPosts = this.state.postsArray.map((post, index) => {
+      renderPosts = this.props.postsArray.map((post, index) => {
         // console.log(post);
         return (
           <Post
