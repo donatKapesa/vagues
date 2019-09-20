@@ -14,10 +14,9 @@ a {
   text-decoration: none;
 }
 
-a:hover {
+/* a:hover {
   color: black;
-}
-
+} */
 
 .link {
   color: #007bff;
@@ -28,4 +27,15 @@ a:hover {
 .link:hover {
   color: #0056b3;
   text-decoration: none;
+}
+
+.btn {
+  background-color: #0099ff!important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn:hover {
+  background-color: #2caaff!important;
 }
