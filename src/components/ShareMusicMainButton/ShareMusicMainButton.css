@@ -1,19 +1,20 @@
 .addNewPost {
   position: fixed;
   top: 80%;
-  left: 70%;
+  left: 78%;
   z-index: 499; /* MUST BE LESS THAN MODAL */
 }
 
 /* https://codepen.io/hakimel/pen/rJtus */
 /* Reset */
 button {
-  background: transparent;
-  border: 0;
-  padding: 0;
-  cursor: pointer;
-  outline: 0;
-  -webkit-appearance: none;
+  padding: 5px 15px;
+  top: 0;
+  font-size: 28px;
+  font-family: "Open Sans", Helvetica;
+  border-radius: 4px;
+  background: #0099ff;
+  color: #fff;
 
   /* shadow */
   -webkit-box-shadow: 0px 0px 20px 10px rgba(138, 208, 255, 0.75);

@@ -1,44 +1,50 @@
-  .post {
-    width: 600px;
-    margin: auto;
-    position: relative;
-    background-color: #f8f9fa;
-    padding: 50px 10px;
-    margin-bottom: 50px;
-  }
-  
-  /* can control size of iframe here */
-  .embed-iframe {
-    width: 300px;
-    height: 380px;
-  }
-  
-  .myIframe {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .card {
-    width: 302px;
-    margin: auto;
-  }
-  
-  .card-header {
-    background-color: white;
-  }
-  
-  .card-caption {
-    margin: 22px 0px;
-    padding: 5px 10px;
-  }
-  
-  .card-body {
-    padding: 0px;
-    /* or 20px */
-  }
-  
-  .card-footer {
-    border-top: none;
-    background-color: white;
-  }
+.post {
+  border-radius: 6px;
+  background-color: #ffffff;
+  margin-bottom: 50px;
+  width: 100%;
+  height: 100%;
+}
+
+/* can control size of iframe here */
+.embed-iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.myIframe {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+}
+
+.card-header {
+  background-color: white;
+}
+
+.card-caption {
+  text-align: center;
+  margin: 22px 0px;
+  padding: 5px 10px;
+}
+
+.card-body {
+  padding: 0px;
+  text-align: center;
+}
+
+.card-body input {
+  border-radius: 5px;
+}
+
+.card-footer {
+  border-top: none;
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+}

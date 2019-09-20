@@ -2,3 +2,17 @@
 .headroom-wrapper {
   margin-bottom: 60px;
 }
+
+.navbar {
+  background: #ffffff;
+  height: 70px;
+  border-bottom: 1px solid #0000001a;
+  -webkit-box-shadow: 0px 5px 26px -17px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 5px 26px -17px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 5px 26px -17px rgba(0, 0, 0, 0.75);
+}
+
+.logo-top {
+  font-size: 35px;
+  color: #0099ff;
+}

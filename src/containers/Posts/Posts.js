@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Post from "./Post/Post";
 import $ from "jquery";
 import Aux from "../../hoc/Aux/Aux";
+import "./Posts.css";
 
 class Posts extends Component {
   
@@ -30,7 +31,7 @@ class Posts extends Component {
 
     return (
       <Aux>
-        <div className="container posts-container">{renderPosts}</div>
+        <div className="posts-container">{renderPosts}</div>
       </Aux>
     );
   }

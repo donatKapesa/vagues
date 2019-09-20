@@ -27,12 +27,16 @@ class App extends Component {
     );
   }
 
+  onSignOut() {
+    window.location.href = "http://localhost:3000/";
+  }
+
   render() {
     var render = <SignInPage />;
     if (this.state.access_token) {
       render = (
         <Aux>
-          <Navbar />
+          <Navbar signout={this.onSignOut} />
           <Main access_token={this.state.access_token} />
         </Aux>
       );

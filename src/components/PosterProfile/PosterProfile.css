@@ -9,12 +9,9 @@
   }
   
   .profile-pic-div {
-    width: 100px;
-    height: 100px;
-    margin-bottom: 15px;
-    border-radius: 50%;
+    width: 65px;
+    margin-bottom: 6px;
     content: 'pic';
-    /* background-color: grey; */
   }
 
 .timeStamp {

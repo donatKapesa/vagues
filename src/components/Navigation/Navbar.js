@@ -3,7 +3,7 @@ import "./Navbar.css";
 import SearchBar from "../UI/SearchBar/SearchBar";
 import Headroom from "react-headroom";
 
-const navbar = () => (
+const navbar = ({ signout }) => (
   <Headroom
     style={{
       webkitTransition: "all .5s ease-in-out",
@@ -22,11 +22,11 @@ const navbar = () => (
         }}
       >
         <div>
-          <a className="navbar-brand" href="#tohome">
+          {/* <a className="navbar-brand" href="#tohome">
             To top
-          </a>
+          </a> */}
         </div>
-        <div>
+        {/* <div>
           <form className="form-inline">
             <div className="input-group">
               <SearchBar
@@ -40,8 +40,14 @@ const navbar = () => (
               />
             </div>
           </form>
+        </div> */}
+        <div className="logo logo-top">Vagues</div>
+        <div
+          onClick={signout}
+          style={{ cursor: "pointer", textDecoration: "underline" }}
+        >
+          <a>Sign Out</a>
         </div>
-        <div>Log Out</div>
       </div>
     </nav>
   </Headroom>

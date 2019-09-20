@@ -2,9 +2,8 @@ import React from "react";
 import "./Post.css";
 import PosterProfile from "../../../components/PosterProfile/PosterProfile";
 
-const post = ({caption, embedCodeSource}) => (
+const post = ({ caption, embedCodeSource }) => (
   <div className="post">
-    <PosterProfile />
     <div className="card">
       <div className="card-body">
         <h5 className="card-caption">{caption}</h5>
@@ -12,8 +11,8 @@ const post = ({caption, embedCodeSource}) => (
           <iframe
             title="embed"
             src={embedCodeSource}
-            width="300"
-            height="380"
+            width="498"
+            height="400"
             frameBorder="0"
             allowtransparency="true"
             allow="encrypted-media"

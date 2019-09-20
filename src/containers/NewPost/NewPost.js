@@ -69,7 +69,7 @@ class NewPost extends Component {
                     searchResults={this.state.searchResults}
                     clickedResult={this.clickedResultHandler}
                   />
-                  <div className="link">view more</div>
+                  <div style={{padding: "0 8px"}} className="link">view more</div>
                 </div>
               );
               this.setState({ renderResults: renderResults });

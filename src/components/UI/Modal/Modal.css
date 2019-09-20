@@ -5,12 +5,7 @@
   position: fixed;
   z-index: 500;
   background-color: white;
-  width: 80%;
-  height: 600px;
-  border: 0.5px solid #ccc;
-  padding: 30px;
-  left: 15%;
-  top: 5%;
+  padding: 10px 25px;
   box-sizing: border-box;
   transition: all 0.3s ease-out;
   overflow: scroll;
@@ -25,8 +20,7 @@ z-index: 1000;
 @media (min-width: 600px) {
   .Modal {
       width: 600px;
-      height: 500px;
       margin: auto;
-      left: calc(50% - 250px);
+      left: calc(50% - 300px);
   }
 }
