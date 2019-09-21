@@ -3,10 +3,9 @@ import "./SignInPage.css";
 
 class SignInPage extends Component {
   signInHandler = () => {
-    // this.props.signInSuccessful();
     console.log("this exectutes");
-    window.location = "http://localhost:8888/login";
-    // TO FIX. HOW DO I MAKE SURE THAT THIS EXECUTES ONLY IF USER SUCCESSFULLY SIGNS IN??
+    // window.location = "http://localhost:8888/login";
+    window.location = "https://donatkapesa.github.io/vagues/login";
     console.log("will go now");
   };
 
