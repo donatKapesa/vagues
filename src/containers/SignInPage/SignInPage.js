@@ -5,7 +5,7 @@ class SignInPage extends Component {
   signInHandler = () => {
     console.log("this exectutes");
     // window.location = "http://localhost:8888/login";
-    window.location = "https://donatkapesa.github.io/vagues/login";
+    window.location = "https://vagues-backend.herokuapp.com/login";
     console.log("will go now");
   };
 
