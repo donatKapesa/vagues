@@ -13,13 +13,24 @@ class SignInPage extends Component {
     console.log(window);
     return (
       <div class="header">
-        <div class="inner-header flex">
-          <a
-            onClick={this.signInHandler}
-            class="waves-effect waves-light btn sign-in-button"
-          >
-            Sign in with Spotify
-          </a>
+        <div class="inner-header flex" style={{ flexDirection: "column", position: 'relative' }}>
+          <div className="homepage-buttons">
+            <a
+              onClick={this.signInHandler}
+              class="waves-effect waves-light btn sign-in-button"
+              style={{ marginBottom: "10px" }}
+            >
+              Sign in with Spotify
+            </a>
+            <a
+              href="https://github.com/donatKapesa/vagues"
+              target="_blank"
+              class="waves-effect waves-light btn view-on-github"
+            >
+              <i class="fab fa-github"></i>
+              View Code on GitHub
+            </a>
+          </div>
         </div>
         <div>
           <svg

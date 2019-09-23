@@ -112,3 +112,26 @@ p {
     font-size: 24px;
   }
 }
+
+.fa-github {
+  margin-right: 5px;
+}
+
+.view-on-github {
+  background-color: rgb(233, 242, 248) !important;
+  width: 80%;
+}
+
+.view-on-github:hover {
+  background-color: white !important;
+  color: black;
+}
+
+.homepage-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 55%;
+}
